@@ -3,8 +3,11 @@ package com.elgardenia.ventas_api.cerveza;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.elgardenia.ventas_api.cerveza.dto.CervezaRequest;
 import com.elgardenia.ventas_api.cerveza.dto.CervezaResponse;
 
 import lombok.RequiredArgsConstructor;
@@ -21,5 +24,9 @@ public class CervezaController {
         return service.getCerveza();
     }
 
+    @PostMapping("/cerveza")
+    public CervezaResponse postCerveza(@RequestBody CervezaRequest request) {
+        return service.postCerveza(request);
+    }
 
 }

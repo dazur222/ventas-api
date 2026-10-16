@@ -14,6 +14,9 @@ public class EstiloCervezaService {
     public List<EstiloCerveza> getEstilosCervezas(){
         return repository.findAll();
     } 
+    public EstiloCerveza getEstiloCerveza(Integer id){
+        return repository.findById(id).orElse(null);
+    }
 
     
 }
