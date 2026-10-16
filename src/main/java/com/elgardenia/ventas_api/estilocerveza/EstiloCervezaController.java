@@ -10,13 +10,14 @@ import lombok.RequiredArgsConstructor;
 @RestController 
 @RequiredArgsConstructor 
 public class EstiloCervezaController {
-    
+
     private final EstiloCervezaService service;
 
     @GetMapping("/estilo-cerveza")
     public List<EstiloCerveza> getEstilosCerveza(){
-        return service.getEstilosCerveza();
+        return  service.getEstilosCervezas();
     }
 
 
+    
 }

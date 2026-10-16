@@ -26,11 +26,9 @@ public class Presentacion {
     private Integer id;
 
     @Column 
-    private String nombre;
-    @Column 
     private  BigDecimal litros;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name ="tipo_envase_id")
     private TipoEnvase tipoEnvase;
 
