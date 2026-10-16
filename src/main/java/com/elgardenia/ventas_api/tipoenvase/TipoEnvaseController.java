@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController 
-@RequestMapping("/tipos-envases")
+@RequestMapping("/tipo-envase")
 @RequiredArgsConstructor 
 public class TipoEnvaseController {
     private final TipoEnvaseService service;

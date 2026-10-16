@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.elgardenia.ventas_api.cerveza.dto.CervezaResponse;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController 
@@ -14,7 +16,7 @@ public class CervezaController {
     private final CervezaService service;
 
     @GetMapping("/cerveza")
-    public List<Cerveza> getCerveza(){
+    public List<CervezaResponse> getCerveza(){
         // System.out.println("papu");
         return service.getCerveza();
     }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PresentacionController {
     private final PresentacionService service;
 
-    @GetMapping("/presentaciones")
+    @GetMapping("/presentacion")
     public List<Presentacion> getPresentaciones() {
         return service.getPresentaciones();
     }
