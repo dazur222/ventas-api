@@ -11,22 +11,29 @@ import com.elgardenia.ventas_api.cerveza.dto.CervezaRequest;
 import com.elgardenia.ventas_api.cerveza.dto.CervezaResponse;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-@RestController 
-@RequiredArgsConstructor 
+@RestController
+@RequiredArgsConstructor
 public class CervezaController {
-    
+
     private final CervezaService service;
 
     @GetMapping("/cerveza")
-    public List<CervezaResponse> getCerveza(){
+    public List<CervezaResponse> getCerveza() {
         // System.out.println("papu");
-        return service.getCerveza();
+        return service.getCervezas();
     }
 
     @PostMapping("/cerveza")
     public CervezaResponse postCerveza(@RequestBody CervezaRequest request) {
         return service.postCerveza(request);
+    }
+
+    @PutMapping("/cerveza/{id}")
+    public CervezaResponse putMethodName(@PathVariable Integer id, @RequestBody CervezaRequest request) {
+        return service.updateCerveza(request, id);
     }
 
 }

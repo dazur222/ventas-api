@@ -15,4 +15,8 @@ public class PresentacionService {
         return  repository.findAll();
     }
 
+    public Presentacion getPresentacion(Integer id){
+        return  repository.findById(id).orElse(null);
+    }
+
 }

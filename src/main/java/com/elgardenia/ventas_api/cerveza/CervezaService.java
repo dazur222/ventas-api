@@ -20,8 +20,12 @@ public class CervezaService {
     private final CervezaMapper mapper;
     private final EstiloCervezaService estiloCervezaService;
 
-    public List<CervezaResponse> getCerveza(){
+    public List<CervezaResponse> getCervezas(){
         return repository.findAll().stream().map(mapper::modelToDto).toList();
+    }
+    
+    public Cerveza getCerveza(Integer id){
+       return repository.findById(id).orElse(null);
     }
 
     public CervezaResponse postCerveza(CervezaRequest request){
@@ -38,6 +42,20 @@ public class CervezaService {
         return mapper.modelToDto(nuevaCerveza);
         
 
+    }
+
+    public CervezaResponse updateCerveza(CervezaRequest request,Integer id){
+
+        Cerveza cerveza = repository.findById(id).orElse(null);
+        cerveza.setNombre(request.nombre());
+        cerveza.setIbu(request.ibu());
+        cerveza.setGradosAlcohol(request.gradosAlcohol());
+    
+        EstiloCerveza estilo  = estiloCervezaService.getEstiloCerveza(request.estiloCervezaId());
+        cerveza.setEstiloCerveza(estilo);
+
+
+        return mapper.modelToDto(repository.save(cerveza));
     }
     
 }
