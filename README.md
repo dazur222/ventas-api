@@ -1,5 +1,13 @@
 # ventas-api
 
+## Configuración de CORS
+
+Configura `CORS_ALLOWED_ORIGINS` en el entorno del servicio con el origen exacto
+del frontend desplegado (por ejemplo, `https://mi-frontend.onrender.com`).
+Se aceptan varios orígenes separados por comas. En desarrollo se permite
+`http://localhost:5173` de forma predeterminada. Después de cambiar la variable
+en Render, redepliega el backend para aplicar la configuración.
+
 ## Migración de municipio y estado
 
 La relación de clientes ahora se guarda en `cliente.municipio_id`, con `municipio.estado_id` como relación hacia `estado`. Para conservar los datos de una instalación anterior, ejecuta una vez `src/main/resources/db/manual/20261019_normalize_customer_location.sql` contra la base de datos antes de desplegar la nueva versión. La migración transforma las filas de `ubicacion`, reasigna los clientes y después elimina la columna y tabla antiguas. En una base nueva, las entidades JPA crean las tablas y el catálogo debe cargarse con estados y municipios válidos.
