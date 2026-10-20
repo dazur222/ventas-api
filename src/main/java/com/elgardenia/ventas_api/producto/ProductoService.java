@@ -58,8 +58,11 @@ public class ProductoService {
         producto.setCerveza(cerveza);
         producto.setPresentacion(presentacion);
         producto.setPrecioBase(request.precioBase());
+
         producto.setActivo(request.activo());
         
+        System.out.println("");
+        System.out.println("vamos a actualizar el producto");
         return mapper.entityToDto(repository.save(producto));
     
 

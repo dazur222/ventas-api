@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.elgardenia.ventas_api.cerveza.dto.CervezaRequest;
 import com.elgardenia.ventas_api.cerveza.dto.CervezaResponse;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,12 +28,12 @@ public class CervezaController {
     }
 
     @PostMapping("/cerveza")
-    public CervezaResponse postCerveza(@RequestBody CervezaRequest request) {
+    public CervezaResponse postCerveza(@Valid @RequestBody CervezaRequest request) {
         return service.postCerveza(request);
     }
 
     @PutMapping("/cerveza/{id}")
-    public CervezaResponse putMethodName(@PathVariable Integer id, @RequestBody CervezaRequest request) {
+    public CervezaResponse putMethodName(@PathVariable Integer id, @Valid @RequestBody CervezaRequest request) {
         return service.updateCerveza(request, id);
     }
 
