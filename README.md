@@ -2,11 +2,11 @@
 
 ## Configuración de CORS
 
-Configura `CORS_ALLOWED_ORIGINS` en el entorno del servicio con el origen exacto
-del frontend desplegado (por ejemplo, `https://mi-frontend.onrender.com`).
-Se aceptan varios orígenes separados por comas. En desarrollo se permite
-`http://localhost:5173` de forma predeterminada. Después de cambiar la variable
-en Render, redepliega el backend para aplicar la configuración.
+Configura `CORS_ALLOWED_ORIGINS` en el entorno del servicio para controlar los
+orígenes permitidos. Se aceptan varios orígenes separados por comas; `*` permite
+cualquier origen temporalmente y es el valor predeterminado actual. Después de
+cambiar esta variable en Render, redepliega el backend para aplicar la
+configuración.
 
 ## Migración de municipio y estado
 
