@@ -49,6 +49,11 @@ public class VentaService {
     private EntityManager entityManager;
 
     @Transactional(readOnly = true)
+    public String obtenerFolioProyectado() {
+        return String.format("NV%04d", ventaRepository.findLastFolioNumber() + 1);
+    }
+
+    @Transactional(readOnly = true)
     public List<VentaResponse> obtenerVentas() {
         List<Venta> ventas = ventaRepository.findAllByOrderByFechaVentaDescIdDesc();
         if (ventas.isEmpty()) {

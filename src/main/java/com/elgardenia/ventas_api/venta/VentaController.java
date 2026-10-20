@@ -28,6 +28,11 @@ public class VentaController {
         return service.obtenerVentas();
     }
 
+    @GetMapping("/folio-proyectado")
+    public FolioProyectadoResponse obtenerFolioProyectado() {
+        return new FolioProyectadoResponse(service.obtenerFolioProyectado());
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public VentaResponse crearVenta(@Valid @RequestBody VentaRequest request) {
